@@ -1,0 +1,58 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} UI Tables {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+        <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Sports Analytics Table</h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <th>
+                          DATE
+                        </th>
+                        <th>
+                          TEAM 1
+                        </th>
+                        <th>
+                          TEAM 2
+                        </th>
+                        <th>
+                          EXPECTED SCORE
+                        </th>
+                        <th>
+                          WINNER PREDICTION
+                        </th>
+                      </thead>
+                      <tbody>
+                        {% for row in data %}
+                          <tr>
+                            <td>{{ row.date }}</td>
+                            <td>{{ row.team_1 }}<br>{{ row.score_1 }}</td>
+                            <td>{{ row.team_2 }}<br>{{ row.score_2 }}</td>
+                            <td class="text-primary">{{ row.score }}<br>Logic: {{ row.logic}}</td>
+                            <td class="text-primary">{{ row.winner }}</td>
+                          </tr>
+                        {% endfor %}
+                        
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
